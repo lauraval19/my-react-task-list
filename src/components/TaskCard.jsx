@@ -1,16 +1,18 @@
+import { useState } from "react";
 
 export const TaskCard = (props) =>{
-    const {name} = props
+    const {name,onNewTaskClick,isComplete} = props
+    const [state,setState] = useState(isComplete);
+
+    const handleClick = () => {
+        console.log(`time for ${name}`);
+        onNewTaskClick(name);
+    };
+
     return(
          <div>
-                    <h3>{name}  
-                    <button onClick={function(){
-                        console.log('editar')
-                    }}>Editar</button>
-                    <button onClick={function(){
-                        console.log('eliminar')
-                    }}>Eliminar</button>
-                    </h3>
+                    <h3 style={{textDecoration:isComplete ? 'line-through' : ''}} >{name}</h3>
+                    <button onClick={handleClick}>Complete</button>
          </div>
     )
 

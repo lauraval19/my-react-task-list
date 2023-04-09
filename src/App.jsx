@@ -11,10 +11,6 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <input type="text" name="newTask"/>  
-                <button onClick={function(){
-                  console.log("hola")
-                }}>Agregar</button>
       <TaskList list={listTasks}/>
     </div>
   );
